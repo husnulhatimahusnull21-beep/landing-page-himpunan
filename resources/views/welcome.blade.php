@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HMIT.UTS</title>
+<title>Himpunan Mahasiswa Informatika</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
@@ -26,31 +26,46 @@ body {
     padding: 20px 50px;
     position: fixed;
     width: 100%;
+    top: 0;
     color: white;
     z-index: 1000;
     transition: 0.3s;
 }
 
 .navbar.scrolled {
-    background: #001f3f;
-    border-bottom: 3px solid #FFD700;
+    background: #001f3f; /* navy */
+    backdrop-filter: blur(10px);
+    border-bottom: 3px solid #FFD700; /* kuning */
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+}
+
+.navbar ul li {
+    margin-left: 30px;
 }
 
 .navbar a {
-    color: #FFD700;
     text-decoration: none;
-    margin-left: 20px;
+    color: #FFD700; /* kuning */
+    font-weight: 500;
+}
+
+.navbar h2 {
+    color: #FFD700;
 }
 
 /* HERO */
 .hero {
     height: 100vh;
-    background: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c') center/cover;
+    background: url('https://images.unsplash.com/photo-1518770660439-4636190af475') center/cover;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #FFD700;
     text-align: center;
+    color: #FFD700;
     position: relative;
 }
 
@@ -59,86 +74,104 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: rgba(0,31,63,0.8);
+    background: rgba(0, 31, 63, 0.8); /* overlay navy */
 }
 
 .hero-content {
     position: relative;
     z-index: 1;
+    animation: fadeUp 1.5s ease;
+}
+
+.hero h1 {
+    font-size: 50px;
+}
+
+.hero p {
+    margin: 15px 0;
+    color: #ffffff;
 }
 
 .hero button {
-    margin-top: 20px;
-    padding: 10px 25px;
-    background: #FFD700;
+    padding: 12px 30px;
     border: none;
-    border-radius: 20px;
+    background: #FFD700;
+    color: #001f3f;
+    border-radius: 30px;
     cursor: pointer;
+    transition: 0.3s;
+}
+
+.hero button:hover {
+    background: #ffcc00;
 }
 
 /* SECTION */
 section {
-    padding: 80px 20px;
+    padding: 100px 50px;
     text-align: center;
 }
 
-/* CARD */
+/* ABOUT */
+.about {
+    background: #f9f9f9;
+}
+
+/* PROGRAM */
 .program-container {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 30px;
     flex-wrap: wrap;
 }
 
 .card {
     background: white;
-    padding: 20px;
-    width: 250px;
-    border-radius: 10px;
+    padding: 25px;
+    width: 260px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transition: 0.3s;
     border-top: 5px solid #FFD700;
+}
+
+.card:hover {
+    transform: translateY(-10px);
 }
 
 /* CONTACT */
 .contact {
-    background: #001f3f;
+    background: linear-gradient(to right, #001f3f, #003366);
     color: #FFD700;
-}
-
-.contact form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    margin: 20px 0;
-}
-
-.contact input,
-.contact textarea {
-    width: 250px;
-    padding: 10px;
-    border-radius: 5px;
-    border: none;
-}
-
-.contact button {
-    padding: 10px 20px;
-    background: #FFD700;
-    border: none;
-    cursor: pointer;
 }
 
 /* FOOTER */
 footer {
     background: #001f3f;
     color: #FFD700;
-    padding: 10px;
+    padding: 20px;
+}
+
+/* ANIMATION */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* RESPONSIVE */
-@media(max-width: 768px){
-    .program-container {
+@media(max-width: 768px) {
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .navbar {
         flex-direction: column;
-        align-items: center;
     }
 }
 </style>
@@ -146,92 +179,68 @@ footer {
 
 <body>
 
-<!-- NAVBAR -->
 <div class="navbar" id="navbar">
     <h2>HMIT.UTS</h2>
-    <div>
-        <a href="#home">Home</a>
-        <a href="#about">Tentang</a>
-        <a href="#program">Program</a>
-        <a href="#contact">Kontak</a>
-    </div>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">Tentang</a></li>
+        <li><a href="#program">Program</a></li>
+        <li><a href="#contact">Kontak</a></li>
+    </ul>
 </div>
 
-<!-- HERO -->
 <section class="hero" id="home">
     <div class="hero-content">
         <h1>Himpunan Mahasiswa Informatika</h1>
-        <p>Membangun Generasi Teknologi yang kreatif dan inovatif</p>
+        <p>Membangun Generasi Teknologi yang Kreatif & Inovatif</p>
         <button onclick="scrollKe('program')">Jelajahi</button>
     </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about">
+<section class="about" id="about">
     <h2>Tentang Kami</h2>
-    <p>Organisasi mahasiswa informatika yang fokus pada pengembangan akademik, teknologi, dan kepemimpinan.</p>
-    <p>Satu keluarga satu tujuan untuk informatika jaya.</p>
+    <p>Kami adalah organisasi mahasiswa informatika yang fokus pada pengembangan akademik, teknologi, dan kepemimpinan.</p>
+    <p>Satu keluarga satu tujuan unutk informatika jaya.</p>
 </section>
 
-<!-- PROGRAM -->
 <section id="program">
-    <h2>Program HMIT</h2>
+    <h2>Program Unggulan</h2>
     <div class="program-container">
         <div class="card">
-            <h3>Workshop coding</h3>
-            <p>Belajar dari dasar hingga advance</p>
+            <h3>Workshop Coding</h3>
+            <p>Belajar dari dasar hingga advanced</p>
         </div>
         <div class="card">
-            <h3>Seminar</h3>
+            <h3>Seminar Nasional</h3>
             <p>Menghadirkan kelas PWTI</p>
         </div>
         <div class="card">
             <h3>Pengabdian</h3>
-            <p>Mengembangkan teknologi untuk masyarakat</p>
+            <p>Meningkatkan teknologi untuk masyarakat</p>
         </div>
     </div>
 </section>
 
-<!-- CONTACT (USER INPUT) -->
 <section class="contact" id="contact">
     <h2>Kontak Kami</h2>
-    
-    <form onsubmit="kirimPesan(event)">
-        <input type="text" id="nama" placeholder="Nama" required>
-        <input type="email" id="email" placeholder="Email" required>
-        <textarea id="pesan" placeholder="Pesan" required></textarea>
-        <button type="submit">Kirim</button>
-    </form>
-
-    <p>Email: hmit.uts@email.com</p>
-    <p>Instagram:HMIT.UTS</p>
+    <p>Email: HMIT@email.com</p>
+    <p>IG: HMIT.UTS</p>
     <p>Universitas Teknologi Sumbawa</p>
 </section>
 
-<!-- FOOTER -->
 <footer>
-    <p>© 2026 HMIT.UTS</p>
+    <p>© 2026 HMIT - All Rights Reserved</p>
 </footer>
 
 <script>
-function scrollKe(id){
-    document.getElementById(id).scrollIntoView({behavior:"smooth"});
+function scrollKe(id) {
+    document.getElementById(id).scrollIntoView({ behavior: "smooth" });
 }
 
-window.addEventListener("scroll", function(){
-    document.getElementById("navbar")
-    .classList.toggle("scrolled", window.scrollY > 50);
+window.addEventListener("scroll", function() {
+    let navbar = document.getElementById("navbar");
+    navbar.classList.toggle("scrolled", window.scrollY > 50);
 });
-
-function kirimPesan(e){
-    e.preventDefault();
-
-    let nama = document.getElementById("nama").value;
-
-    alert("Pesan berhasil dikirim, terima kasih " + nama + " 🙌");
-
-    document.querySelector("form").reset();
-}
 </script>
 
 </body>
